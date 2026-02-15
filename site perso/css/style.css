@@ -1,0 +1,39 @@
+.gallery-main {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gallery-main img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.gallery-main-caption {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.gallery-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.gallery-thumb {
+  width: 120px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+}
+
+.gallery-thumb.active {
+  opacity: 1;
+  border-color: #fff;
+}

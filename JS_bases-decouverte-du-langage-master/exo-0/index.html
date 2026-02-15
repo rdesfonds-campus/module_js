@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice 0</title>
+  </head>
+  <body>
+
+    <h1>Exercice 0</h1>
+
+    <script type="text/javascript">
+      /* Section 1 */
+
+      var name = "Joe"; /* Je crée une variable name qui contient le prénom "Joe". */
+      var city = "London"; /* Je crée une variable city qui contient la ville "London". */
+      var age = 32; /* Je crée une variable age qui contient l'âge de Joe : 32. */
+      var isRed = true; /* Je crée une variable booléenne isRed qui indique que Joe est roux (true = oui). */
+      var isOld = age > 80; /* Je crée une variable booléenne isOld qui sera vraie seulement si age est supérieur à 80. */
+
+      var previousJobs = ["lawyer", "developper", "Professionnal climber"];
+      /* Tableau qui contient les anciens métiers de Joe : avocat, développeur, grimpeur professionnel. */
+
+      function info(height, weight) {
+        /* Fonction info qui prend une taille (height) et un poids (weight) et affiche des messages selon les valeurs. */
+        if (height > 180) {
+          /* Si la taille est supérieure à 180 cm... */
+          console.log("Vous êtes grand"); /* ...j'affiche "Vous êtes grand" dans la console. */
+        }
+        if (weight < 0) {
+          /* Si le poids est inférieur à 0... */
+          console.log("oups, there is a problem"); /* ...j'affiche un message d'erreur dans la console. */
+        } else if (weight < 15) {
+          /* Sinon, si le poids est inférieur à 15... */
+          console.log("Are you that slim ?"); /* ...j'affiche "Are you that slim ?" dans la console. */
+        } else {
+          /* Dans tous les autres cas... */
+          console.log("Good !"); /* ...j'affiche "Good !" dans la console. */
+        }
+      }
+
+      info(165, 45); /* Appelle la fonction info avec une taille 165 et un poids 45. */
+
+      var myHeight = 175; /* Je crée une variable myHeight qui contient ma taille : 175 cm. */
+      var myWeight = 86; /* Je crée une variable myWeight qui contient mon poids : 86 kg. */
+
+      info(myHeight, myWeight); /* Appelle la fonction info avec myHeight et myWeight. */
+
+      info(myHeight + 15, myWeight - 100);
+      /* Appelle la fonction info avec une taille augmentée de 15 cm et un poids diminué de 100 kg. */
+
+      function toUpper(variable) {
+        /* Fonction qui transforme une chaîne de caractères en majuscules. */
+        return variable.toUpperCase();
+        /* Renvoie la chaîne passée en paramètre transformée en majuscules. */
+      }
+
+      var upperName = toUpper(name);
+      /* Stocke dans upperName la version majuscule de la variable name ("JOE"). */
+
+      for (var i = 0; i < 3; i = i + 1) {
+        /* Boucle qui parcourt les 3 premiers éléments du tableau previousJobs. */
+        console.log(previousJobs[i]); /* Affiche dans la console chaque ancien métier. */
+      }
+
+      /* Section 2 */
+
+      var message = "Joe vit à"; /* Crée une variable message qui contient le début de la phrase "Joe vit à". */
+      console.log(message); /* Affiche le message dans la console. */
+      console.log(city); /* Affiche la ville où Joe vit. */
+      console.log(isRed); /* Affiche true ou false pour dire si Joe est roux. */
+      console.log(name.toUpperCase() + " vit à " + city);
+      /* Affiche une phrase avec le nom en majuscules et la ville. */
+      console.log(`${name.toUpperCase()} vit à ${city}`);
+      /* Affiche la même phrase avec la syntaxe template string. */
+
+      /* Section 3 */
+
+      console.log(myVariable);
+      /* Essaye d'afficher myVariable, mais cette variable n'est pas déclarée :
+         cela provoque une erreur "myVariable is not defined" dans la console. */
+    </script>
+
+  </body>
+</html>
