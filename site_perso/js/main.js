@@ -1,6 +1,4 @@
-// =========================
-// UTILITAIRE
-// =========================
+//Uilitaire de création d’éléments 
 function createAndStyleElement(tag, className, content = '') {
   const element = document.createElement(tag);
   if (className) element.className = className;
@@ -8,18 +6,14 @@ function createAndStyleElement(tag, className, content = '') {
   return element;
 }
 
-// =========================
-// DONNÉES MOCK
-// =========================
+// Données mock pour tester l’affichage
 let mockPosts = [
   { id: 1, title: "Article mock 1", body: "Ceci est un faux article pour tester l’affichage." },
   { id: 2, title: "Article mock 2", body: "Un deuxième article inventé pour le design." },
   { id: 3, title: "Article mock 3", body: "Encore un article bidon pour remplir le feed." }
 ];
 
-// =========================
-// POSTS UTILISATEUR
-// =========================
+//posts créés par l’utilisateur, sauvegardés en localStorage
 let userPosts = [];
 
 // Sauvegarder dans localStorage
@@ -69,9 +63,7 @@ function renderUserPosts() {
   });
 }
 
-// =========================
-// DONNÉES GALERIE
-// =========================
+// Données de la galerie d’images
 const galleryImages = [
   { id: 1, title: 'Image 1', url: 'https://picsum.photos/seed/1/800/450' },
   { id: 2, title: 'Image 2', url: 'https://picsum.photos/seed/2/800/450' },
@@ -117,13 +109,11 @@ function renderGallery() {
   });
 }
 
-// =========================
-// CRÉATION DE LA PAGE
-// =========================
+// Création de la structure de la page
 function createPage() {
   const app = document.getElementById('app');
 
-  // --- NAV ---
+  // --- NAVIGATION ---
   const nav = document.createElement('nav');
   const contactWrapper = createAndStyleElement('div', 'contact-wrapper', '');
   const homeLink = createAndStyleElement('a', '', 'Accueil');
@@ -319,9 +309,7 @@ counterButton.addEventListener('click', () => {
   });
 }
 
-// =========================
-// MOCK
-// =========================
+// Afficher les données mock
 function afficherMock() {
   const dataContainer = document.querySelector('.data-container');
   if (!dataContainer) return;
@@ -342,9 +330,7 @@ function afficherMock() {
   });
 }
 
-// =========================
-// API
-// =========================
+// Récupérer des données depuis une API publique
 async function fetchData() {
   const dataContainer = document.querySelector('.data-container');
   if (!dataContainer) return;
@@ -384,9 +370,7 @@ async function fetchData() {
   }
 }
 
-// =========================
-// DÉMARRAGE
-// =========================
+// Initialisation de la page au démarrage
 document.addEventListener('DOMContentLoaded', () => {
   loadUserPosts();
   createPage();
