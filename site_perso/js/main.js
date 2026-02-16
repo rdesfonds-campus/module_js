@@ -196,10 +196,97 @@ counterButton.addEventListener('click', () => {
 });
 
   const profilSection = createAndStyleElement(
-    'div',
-    'section',
-    'Cette page a entièrement été créée en Javascript.'
-  );
+  'div',
+  'section',
+  `
+    <div class="apropos-layout">
+      <div class="apropos-top">
+        <div id="banniere" class="apropos-banniere">
+          <img src="img/portrait.png" alt="Photo de profil">
+        </div>
+
+        <div id="speech" class="card">
+          <p>
+            Passionné par la création numérique et la résolution de problèmes, je souhaite me reconvertir dans le développement web.<br>
+            Après plus de 20 ans d'expérience en tant que graphiste, je suis habitué aux environnements techniques où j'ai acquis des compétences en UI/UX, en intégration web (HTML/CSS, WordPress) et en automatisation de tâches graphiques via des scripts.<br>
+            Je suis à la recherche d’une alternance où je pourrais acquérir de nouvelles connaissances et valider ma reconversion.
+          </p>
+        </div>
+      </div>
+      <!-- ici viennent ensuite tous les autres blocs .bloctxt card -->
+
+      <div class="bloctxt card">
+        <h3>Compétences UI/UX & Accessibilité</h3>
+        <ul>
+          <li><strong>Développement Web :</strong> HTML, CSS, notions en JavaScript/PHP (ajout de modules aux sites existants)</li>
+          <li><strong>CMS & Intégration :</strong> WordPress, gestion de plugins et templates</li>
+          <li><strong>UI/UX & Accessibilité :</strong> Conception d'interfaces intuitives, ergonomie digitale</li>
+          <li><strong>Gestion de projet :</strong> Travail en équipe agile, respect des délais, veille technologique</li>
+          <li><strong>Adaptabilité & Apprentissage :</strong> Montée en compétences rapide sur de nouveaux outils et langages</li>
+        </ul>
+      </div>
+
+      <div class="bloctxt card">
+        <h3>Expérience professionnelle</h3>
+        <p>
+          <strong>Graphiste Print et Web</strong><br>
+          2002-2024 – <i>Indépendant et salarié</i><br>
+          Secteurs : communication, marketing digital.<br>
+          Création et intégration de maquettes web et emailings (HTML/CSS, responsive design).<br>
+          Automatisation de tâches graphiques via des scripts pour optimiser la production.<br>
+          Gestion de projets numériques, travail en collaboration avec des développeurs pour intégrer des éléments interactifs.<br>
+          Veille technologique continue pour suivre l'évolution des outils numériques et des tendances UI/UX.
+        </p>
+      </div>
+
+          <div class="bloctxt card">
+        <h3>Formations</h3>
+        <p>
+          🎓 2026 | Formation Développeur avancé et IA – Le Campus Numérique (Valence)<br>
+          📜 2024 | Formation Google AI Essentials<br>
+          🎓 2009 | Diplôme Infographie Multimédia 3D – ARIES (Lyon)<br>
+          🎓 2006 | Diplôme Infographiste – Supcréa (Grenoble)<br>
+          🎓 2001 | Bac STT ACC – Lycée B. de Laffemas (Valence)<br>
+        </p>
+      </div>
+
+      <div class="bloctxt card">
+        <h3>Savoir-faire & Savoir-être</h3>
+        <p>
+          🎨 Créativité & innovation<br>
+          📊 Gestion de projet & autonomie<br>
+          🔎 Sens du détail & rigueur<br>
+          💡 Esprit d’analyse & adaptabilité<br>
+          🤝 Travail en équipe & communication efficace<br>
+          🤖 Utilisation responsable de l’IA<br>
+        </p>
+      </div>
+
+      <div class="bloctxt card">
+        <h3>Contact</h3>
+        <table class="contact-table">
+          <tr>
+            <td>Tel : 06XXXXXXXX</td>
+            <td>Montélier 26120</td>
+          </tr>
+          <tr>
+            <td>
+              Email :
+              <a href="mailto:romain.desfonds@le-campus-numerique.fr">
+                romain.desfonds@le-campus-numerique.fr
+              </a>
+            </td>
+            <td>
+              Site web :
+              <a href="https://rdesfonds.fr" target="_blank">rdesfonds.fr</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  `
+);
+
 
   const dataSection = createAndStyleElement(
     'div',
@@ -218,17 +305,66 @@ counterButton.addEventListener('click', () => {
   );
 
   const gallerySection = createAndStyleElement(
-    'div',
-    'section',
-    `
+  'div',
+  'section',
+  `
       <h2>Galerie d'images</h2>
+
+      <div class="gallery-add-form card">
+        <label for="image-url">Ajouter une image par URL :</label>
+        <div class="gallery-add-row">
+          <input
+            type="url"
+            id="image-url"
+            placeholder="https://exemple.com/mon-image.jpg"
+          />
+          <button id="add-image-btn">Ajouter</button>
+        </div>
+        <p class="gallery-add-help">
+          Colle ici l'adresse complète d'une image accessible sur internet.
+        </p>
+      </div>
+
       <div class="gallery-main">
         <img src="" alt="Image principale" />
         <p class="gallery-main-caption"></p>
       </div>
       <div class="gallery-thumbs"></div>
     `
-  );
+);
+// Gestion de l'ajout d'image par URL dans la galerie
+const imageUrlInput = gallerySection.querySelector('#image-url');
+const addImageBtn = gallerySection.querySelector('#add-image-btn');
+
+if (imageUrlInput && addImageBtn) {
+  addImageBtn.addEventListener('click', () => {
+    const url = imageUrlInput.value.trim();
+    if (!url) {
+      return;
+    }
+
+    // On crée un nouvel objet image pour notre tableau
+    const newId = galleryImages.length
+      ? galleryImages[galleryImages.length - 1].id + 1
+      : 1;
+
+    const newImage = {
+      id: newId,
+      title: 'Image perso ' + newId,
+      url: url
+    };
+
+    // On l'ajoute au tableau existant
+    galleryImages.push(newImage);
+
+    // On réaffiche la galerie pour prendre en compte la nouvelle image
+    renderGallery();
+
+    // On vide le champ
+    imageUrlInput.value = '';
+  });
+}
+
 
   mainContent.appendChild(homeSection);
   mainContent.appendChild(profilSection);
