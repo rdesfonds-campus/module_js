@@ -10,7 +10,7 @@ const myDate = new Date();
 const messageWeek = "Pas encore le week-end :(";
 const messageWeekend = "C'est le week-end :)";
 
-//recupération joue et heure
+//recupération jour et heure
 
 let day;
 let hour;

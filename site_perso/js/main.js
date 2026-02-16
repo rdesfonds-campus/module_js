@@ -11,7 +11,7 @@ function createAndStyleElement(tag, className, content = '') {
 // =========================
 // DONNÉES MOCK
 // =========================
-const mockPosts = [
+let mockPosts = [
   { id: 1, title: "Article mock 1", body: "Ceci est un faux article pour tester l’affichage." },
   { id: 2, title: "Article mock 2", body: "Un deuxième article inventé pour le design." },
   { id: 3, title: "Article mock 3", body: "Encore un article bidon pour remplir le feed." }
@@ -167,9 +167,19 @@ function createPage() {
     `
       <h2>Bienvenue sur le site</h2>
       <p>Cliquez sur le bouton pour augmenter le compteur</p>
-      <div id="counter" class="counter"></div>
-    `
+      <div id="counter" class="counter">0</div>
+    <button id="counter-btn">+1</button>
+ `
   );
+let counterValue = 0;
+
+const counterElement = homeSection.querySelector('#counter');
+const counterButton = homeSection.querySelector('#counter-btn');
+
+counterButton.addEventListener('click', () => {
+  counterValue = counterValue + 1;
+  counterElement.textContent = counterValue;
+});
 
   const profilSection = createAndStyleElement(
     'div',
