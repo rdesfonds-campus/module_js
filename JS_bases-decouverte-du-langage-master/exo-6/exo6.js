@@ -9,16 +9,16 @@ team.games = [];
 
 // 4. Remplir le tableau players avec quelques joueurs
 team.players.push(
-  { firstName: "Pablo", lastName: "Sanchez", age: 11 },
-  { firstName: "Léa", lastName: "Martin", age: 14 },
-  { firstName: "Nico", lastName: "Dupont", age: 13 }
+  { firstName: "Michael", lastName: "Jordan", age: 23 },
+  { firstName: "Scottie", lastName: "Pippen", age: 21 },
+  { firstName: "Larry", lastName: "Bird", age: 30 }
 );
 
 // 5. Remplir le tableau games avec quelques matchs
 team.games.push(
-  { opponent: "Broncos", teamPoints: 42, opponentPoints: 27 },
-  { opponent: "Tigers", teamPoints: 35, opponentPoints: 40 },
-  { opponent: "Lions", teamPoints: 50, opponentPoints: 45 }
+  { opponent: "San Antonio Spurs", teamPoints: 42, opponentPoints: 27 },
+  { opponent: "Charlotte Hornets", teamPoints: 35, opponentPoints: 40 },
+  { opponent: "Chicago Bulls", teamPoints: 50, opponentPoints: 45 }
 );
 
 // 6. Méthode pour ajouter un joueur
@@ -32,11 +32,11 @@ team.addGame = function (opponent, teamPoints, opponentPoints) {
 };
 
 // 7 & 9. Tests : ajouter quelques joueurs et matchs
-team.addPlayer("Emma", "Durand", 12);
-team.addPlayer("Max", "Girard", 15);
+team.addPlayer("Charles ", "Barkley", 23);
+team.addPlayer("Magic", "Johnson", 27);
 
-team.addGame("Wolves", 60, 55);
-team.addGame("Sharks", 30, 30);
+team.addGame("New York Knicks", 60, 55);
+team.addGame("Los Angeles Lakers", 30, 30);
 
 // 10. Calculer la somme des points de l'équipe
 let totalTeamPoints = 0;
