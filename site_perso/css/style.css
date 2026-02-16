@@ -267,3 +267,48 @@ footer a:hover {
   opacity: 1;
   border-color: #fff;
 }
+
+/* page accueil */
+.home-hero {
+  background-color: #ffffffdd;
+  border-radius: 8px;
+  padding: 24px 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.home-hero h1 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.home-hero p {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+#hero-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#hero-btn:hover {
+  background-color: #333;
+}
+
+.home-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 700px) {
+  .home-features {
+    flex-direction: row;
+  }
+}

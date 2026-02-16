@@ -152,15 +152,39 @@ function createPage() {
   const mainContent = createAndStyleElement('div', 'main-content');
 
   const homeSection = createAndStyleElement(
-    'div',
-    'section active',
-    `
-      <h2>Bienvenue sur le site</h2>
-      <p>Cliquez sur le bouton pour augmenter le compteur</p>
+  'div',
+  'section active',
+  `
+    <div class="home-hero">
+      <h1>Bienvenue sur mon site JavaScript</h1>
+      <p>Tout ce que tu vois ici est créé en JavaScript, sans HTML écrit à la main.</p>
+      <button id="hero-btn">Découvrir le site</button>
+    </div>
+
+    <div class="home-features">
+      <div class="card">
+        <h2>Feed Mock</h2>
+        <p>Affiche de faux articles pour tester la mise en page.</p>
+      </div>
+      <div class="card">
+        <h2>API Blagues</h2>
+        <p>Charge des blagues depuis une API externe.</p>
+      </div>
+      <div class="card">
+        <h2>Galerie d'images</h2>
+        <p>Parcourt une petite galerie d’images avec vignettes.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Petit compteur</h2>
+      <p>Clique pour augmenter le compteur :</p>
       <div id="counter" class="counter">0</div>
-    <button id="counter-btn">+1</button>
- `
-  );
+      <button id="counter-btn">+1</button>
+    </div>
+  `
+);
+
 let counterValue = 0;
 
 const counterElement = homeSection.querySelector('#counter');
