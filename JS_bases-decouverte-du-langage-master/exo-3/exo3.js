@@ -104,3 +104,4 @@ function playGame() {
 
 // 6. Lancement du jeu
 playGame();
+
