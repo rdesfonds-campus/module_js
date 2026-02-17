@@ -125,7 +125,13 @@ function createPage() {
 
   const subMenu = createAndStyleElement('div', 'sub-menu', '');
   const subItem1 = createAndStyleElement('a', '', 'Email');
+  subItem1.setAttribute(
+  'href',
+  'mailto:contact@exemple.com?subject=Contact%20depuis%20le%20site&body=Bonjour%2C%20je%20vous%20écris%20depuis%20mon%20site.'
+);
+
   const subItem2 = createAndStyleElement('a', '', 'Téléphone');
+subItem2.setAttribute('href', 'tel:+33123456789');
 
   subMenu.appendChild(subItem1);
   subMenu.appendChild(subItem2);
