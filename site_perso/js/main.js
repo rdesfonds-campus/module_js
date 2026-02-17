@@ -69,7 +69,11 @@ const galleryImages = [
   { id: 2, title: 'Image 2', url: 'https://picsum.photos/seed/2/800/450' },
   { id: 3, title: 'Image 3', url: 'https://picsum.photos/seed/3/800/450' },
   { id: 4, title: 'Image 4', url: 'https://picsum.photos/seed/4/800/450' },
-  { id: 5, title: 'Image 5', url: 'https://picsum.photos/seed/5/800/450' }
+  { id: 5, title: 'Image 5', url: 'https://picsum.photos/seed/5/800/450' },
+  { id: 6, title: 'Image 6', url: 'https://picsum.photos/seed/6/800/450' },
+  { id: 7, title: 'Image 7', url: 'https://picsum.photos/seed/7/800/450' },
+  { id: 8, title: 'Image 8', url: 'https://picsum.photos/seed/8/800/450' },
+  { id: 9, title: 'Image 9', url: 'https://picsum.photos/seed/9/800/450' }
 ];
 
 // Afficher la galerie (une grande image + vignettes)
@@ -122,7 +126,7 @@ function createPage() {
   const apiLink = createAndStyleElement('a', '', 'API');
   const galleryLink = createAndStyleElement('a', '', 'Galerie');
   const contactLink = createAndStyleElement('a', '', 'Contact');
-
+// Sous-menu pour contact
   const subMenu = createAndStyleElement('div', 'sub-menu', '');
   const subItem1 = createAndStyleElement('a', '', 'Email');
   subItem1.setAttribute(
@@ -132,7 +136,7 @@ function createPage() {
 
   const subItem2 = createAndStyleElement('a', '', 'Téléphone');
 subItem2.setAttribute('href', 'tel:+33123456789');
-
+// Ajouter les éléments au DOM
   subMenu.appendChild(subItem1);
   subMenu.appendChild(subItem2);
 
@@ -188,6 +192,7 @@ subItem2.setAttribute('href', 'tel:+33123456789');
       <div id="counter" class="counter">0</div>
       <button id="counter-btn">+1</button>
     </div>
+    <div id="ban_accueil"><img src="img/bacasable.png" alt="Image d'illustration" class="home-hero-img" /></div>
   `
 );
 
@@ -314,30 +319,52 @@ counterButton.addEventListener('click', () => {
   'div',
   'section',
   `
-      <h2>Galerie d'images</h2>
+    <h2>Galerie d'images</h2>
 
-      <div class="gallery-add-form card">
-        <label for="image-url">Ajouter une image par URL :</label>
-        <div class="gallery-add-row">
-          <input
-            type="url"
-            id="image-url"
-            placeholder="https://exemple.com/mon-image.jpg"
-          />
-          <button id="add-image-btn">Ajouter</button>
-        </div>
-        <p class="gallery-add-help">
-          Colle ici l'adresse complète d'une image accessible sur internet.
-        </p>
+    <div class="gallery-add-form card">
+      <label for="image-url">Ajouter une image par URL :</label>
+      <div class="gallery-add-row">
+        <input
+          type="url"
+          id="image-url"
+          placeholder="https://exemple.com/mon-image.jpg"
+        />
+        <button id="add-image-btn" type="button">Ajouter</button>
       </div>
+      <p class="gallery-add-help">
+        Colle ici l'adresse complète d'une image accessible sur internet.
+      </p>
+    </div>
 
+    <div class="gallery-toolbar">
+      <button id="gallery-view-grid" type="button">Grille 3 colonnes</button>
+      <button id="gallery-view-list" type="button">Colonne</button>
+    </div>
+
+    <div class="gallery-shell">
       <div class="gallery-main">
         <img src="" alt="Image principale" />
         <p class="gallery-main-caption"></p>
       </div>
+
       <div class="gallery-thumbs"></div>
-    `
+    </div>
+  `
 );
+const thumbsContainer = gallerySection.querySelector('.gallery-thumbs');
+const btnViewGrid = gallerySection.querySelector('#gallery-view-grid');
+const btnViewList = gallerySection.querySelector('#gallery-view-list');
+
+if (thumbsContainer && btnViewGrid && btnViewList) {
+  btnViewGrid.addEventListener('click', () => {
+    thumbsContainer.classList.remove('is-list');
+  });
+
+  btnViewList.addEventListener('click', () => {
+    thumbsContainer.classList.add('is-list');
+  });
+}
+
 // Gestion de l'ajout d'image par URL dans la galerie
 const imageUrlInput = gallerySection.querySelector('#image-url');
 const addImageBtn = gallerySection.querySelector('#add-image-btn');

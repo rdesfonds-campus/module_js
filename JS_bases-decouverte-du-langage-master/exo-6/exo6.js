@@ -1,4 +1,4 @@
-console.log("exo-6");
+console.log(this);
 
 // 1. Création de l'objet team vide
 const team = {};
