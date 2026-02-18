@@ -70,10 +70,7 @@ const galleryImages = [
   { id: 3, title: 'Image 3', url: 'https://picsum.photos/seed/3/800/450' },
   { id: 4, title: 'Image 4', url: 'https://picsum.photos/seed/4/800/450' },
   { id: 5, title: 'Image 5', url: 'https://picsum.photos/seed/5/800/450' },
-  { id: 6, title: 'Image 6', url: 'https://picsum.photos/seed/6/800/450' },
-  { id: 7, title: 'Image 7', url: 'https://picsum.photos/seed/7/800/450' },
-  { id: 8, title: 'Image 8', url: 'https://picsum.photos/seed/8/800/450' },
-  { id: 9, title: 'Image 9', url: 'https://picsum.photos/seed/9/800/450' }
+  { id: 6, title: 'Image 6', url: 'https://picsum.photos/seed/6/800/450' }
 ];
 
 // Afficher la galerie (une grande image + vignettes)
@@ -89,9 +86,9 @@ function renderGallery() {
   mainImg.alt = first.title;
   mainCaption.textContent = first.title;
 
-  thumbsContainer.innerHTML = '';
+  thumbsContainer.innerHTML = ''; // On vide les vignettes avant de les recréer
 
-  galleryImages.forEach((item, index) => {
+  galleryImages.forEach((item, index) => { // On crée une vignette pour chaque image
     const thumb = document.createElement('img');
     thumb.src = item.url;
     thumb.alt = item.title;
@@ -355,7 +352,7 @@ const thumbsContainer = gallerySection.querySelector('.gallery-thumbs');
 const btnViewGrid = gallerySection.querySelector('#gallery-view-grid');
 const btnViewList = gallerySection.querySelector('#gallery-view-list');
 
-if (thumbsContainer && btnViewGrid && btnViewList) {
+if (thumbsContainer && btnViewGrid && btnViewList) { // On ajoute les événements pour changer la vue de la galerie
   btnViewGrid.addEventListener('click', () => {
     thumbsContainer.classList.remove('is-list');
   });
